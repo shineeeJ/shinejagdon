@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interest</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Calibri, sans-serif;
+      background-color: rgb(252, 197, 135);
+      transition: all 0.5s ease;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    .header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: #233d4d;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo a {
+      font-size: 20px;
+      font-weight: bold;
+      color: #fe7f2d;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar li {
+      display: inline-block;
+      margin-right: 25px;
+    }
+
+    .navbar a {
+      font-size: 20px;
+      font-weight: bold;
+      color: #fe7f2d;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background: #131c22;
+      border-radius: 5px;
+      padding: 5px;
+    }
+
+    /* MAIN CARD */
+    .card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      padding: 60px;
+      background: #5e8197;
+      border-radius: 20px;
+      max-width: 1100px;
+      margin: 50px auto;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+      transition: all 0.5s ease;
+    }
+
+    /* IMAGE CONTAINER */
+    .image-container {
+      width: 250px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #ffb546;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      display: block;
+    }
+
+    .image-container:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 35px #ffe29a, 0 0 60px #ffb546;
+    }
+
+    /* FLOATING ANIMATION */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* GALLERY GRID */
+    .grid {
+      display: none;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 50px;
+      max-width: 1100px;
+      margin: 0 auto;
+      animation: fadeIn 1s ease;
+    }
+
+    .grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #ffb546;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .grid img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px #ffe29a, 0 0 60px #ffb546;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* TITLE */
+    main h2 {
+      font-size: 30px;
+      color: rgb(68, 14, 14);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <div class="header">
+    <img src="newhead.jfif" alt="Header Image">
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo"><a href="#">Explore</a></div>
+    <ul>
+      <li><a href="file:///C:/Users/user/OneDrive/Desktop/autobiography/AUTO2.HTML">Home</a></li>
+      <li><a href="file:///C:/Users/user/OneDrive/Desktop/autobiography/shine.html">About</a></li>
+      <li><a href="file:///C:/Users/user/OneDrive/Desktop/autobiography/jagdon.html">Interest</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTENT CARD -->
+  <div class="card" id="card">
+    <div class="image-container" onclick="toggleGallery()">
+      <img src="Intuition.jfif" alt="Main Image">
+    </div>
+
+    <main>
+      <h2>Interest</h2>
+      <p style="text-align:center; font-size:17px; line-height:1.7; color:black;">
+        These photos capture the moments, hobbies, <br>
+        and passions that spark my curiosity and joy. <br>
+        Click the glowing photo to see more — a visual story <br>
+        of what inspires me.
+      </p>
+    </main>
+  </div>
+
+  <!-- GALLERY GRID -->
+  <div class="grid" id="gallery">
+    <img src="fashion.jfif" alt="Fashion">
+    <img src="psych.jfif" alt="Psychology">
+    <img src="badminton.jfif" alt="Badminton">
+    <img src="painting.jfif" alt="Painting">
+    <img src="photoj.jfif" alt="Photography">
+    <img src="Editing.jfif" alt="Editing">
+    <img src="travel.jfif" alt="Travel">
+    <img src="dancing.jfif" alt="Dancing">
+    <img src="singing.jfif" alt="Singing">
+    <img src="maldives.jfif" alt="Maldives">
+  </div>
+
+  <script>
+    const gallery = document.getElementById('gallery');
+    const card = document.getElementById('card');
+    let showingGallery = false;
+
+    function toggleGallery() {
+      if (!showingGallery) {
+        card.style.display = 'none';
+        gallery.style.display = 'grid';
+      } else {
+        gallery.style.display = 'none';
+        card.style.display = 'flex';
+      }
+      showingGallery = !showingGallery;
+    }
+  </script>
+</body>
+</html>
